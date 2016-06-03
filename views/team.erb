@@ -1,0 +1,33 @@
+
+<form class="" action="/build" method="post">
+<div>
+<label for="names">Names</label>
+<br>
+ <textarea name="names" rows="8" cols="40"></textarea>
+ <br>
+ <br>
+ <label for="text">Numbers</label>
+ <input type="text" name="size">
+ <br>
+ <br>
+ <input type="radio" name="method" value = "size">  Number of teams
+ <input type="radio" name="method" value = "number"> Number in a Team
+ </div>
+ <br>
+ <br>
+ <input type="submit">
+</form>
+
+<p>
+    <% if @alert != nil %>
+    <%=  @alert %>
+    <%   else   %>
+    <% session[:hash].each do |x,y|%>
+    <h3><%= "#{x}" %></h3> <br>
+    <% y.each do |name| %>
+    <%= " #{name}, "%> 
+    <% end %>
+    <% end %>
+    <% end %>
+
+</p>
