@@ -48,6 +48,7 @@ end
 
 def number(arr, num)
   teamsize =  (arr.length / num.to_i)
+  remainder = (arr.length % num.to_i)
   hash={}
   i  = 0
   while arr.length > 0
@@ -56,7 +57,10 @@ def number(arr, num)
     teamsize.to_i.times do
     temp << arr.delete_at(rand(arr.length))
     end
-
+    if remainder > 0
+    temp << arr.delete_at(rand(arr.length))
+    remainder -= 1 
+    end
     hash[team] = temp.compact
     i += 1
   end
